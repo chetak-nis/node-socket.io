@@ -23,7 +23,7 @@
       function appendLocation(location, verb) {
         verb = verb || 'updated';
         var newLocation = document.createElement('p');
-        newLocation.innerHTML = 'Location ' + verb+ 'on'+ Date().toString() + ' with direction ' + location.coords.heading + ' speed ' + location.coords.speed + ': <a href="https://maps.google.com/maps?&z=15&q=' + location.coords.latitude + '+' + location.coords.longitude + '&ll=' + location.coords.latitude + '+' + location.coords.longitude + '" target="_blank">' + location.coords.latitude + ', ' + location.coords.longitude + '</a>';
+        newLocation.innerHTML = 'Location ' + verb+ 'on'+ Date().toString() + ' with direction ' + location.coords.heading + ' speed ' + location.coords.speed  + ' Accuracy ' + location.coords.accuracy   + ': <a href="https://maps.google.com/maps?&z=15&q=' + location.coords.latitude + '+' + location.coords.longitude + '&ll=' + location.coords.latitude + '+' + location.coords.longitude + '" target="_blank">' + location.coords.latitude + ', ' + location.coords.longitude + '</a>';
         target.appendChild(newLocation);
       }
 
