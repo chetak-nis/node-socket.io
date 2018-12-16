@@ -6,7 +6,9 @@
   <body>
     <p id='server-time'></p>
     <p id='gyroscope'>Gyro not available</p>
+    <p id='gyroscope-direction'>Direction not available</p>
     <p id='direction'>Direction not available</p>
+
     <script src="/socket.io/socket.io.js"></script>
     <script>
       var socket = io();
@@ -45,6 +47,9 @@
       gyroscope.addEventListener('reading', e => {
         var el = document.getElementById('gyroscope');
         el.innerHTML ="Angular velocety along the X-axis " + gyroscope.x + " Y-axis " + gyroscope.y+ " Z-axis " + gyroscope.z ;
+         heading = compassHeading(gyroscope.y, gyroscope.x, gyroscope.z);
+         var el = document.getElementById('gyroscope-direction');
+         el.innerHTML ="Gyro Direction In degreess " + heading ;
       });
       gyroscope.start();
       }
