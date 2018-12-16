@@ -6,8 +6,8 @@
       var socket = io();
       var el = document.getElementById('server-time');
 
-      socket.on('time', function(timeString) {
-        el.innerHTML = 'Server time: ' + timeString;
+      socket.on('alert', function(timeString) {
+       el.innerHTML = 'Alert: ' + timeString;
       });
     </script>
     <button class="btn btn-default" id="askButton">Ask for location</button>
