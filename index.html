@@ -5,6 +5,7 @@
   </head>
   <body>
     <p id='server-time'></p>
+    <p id='gyroscope'>Gyro not available</p>
     <script src="/socket.io/socket.io.js"></script>
     <script>
       var socket = io();
@@ -36,6 +37,14 @@
         });
       } else {
         target.innerText = 'Geolocation API not supported.';
+      }
+      if (typeof Gyroscope === "function") {
+      let gyroscope = new Gyroscope({frequency: 60});
+      gyroscope.addEventListener('reading', e => {
+        var el = document.getElementById('gyroscope');
+        el.innerHTML ="Angular velocety along the X-axis " + gyroscope.x + " Y-axis " + gyroscope.y+ " Z-axis " + gyroscope.z ;
+      });
+      gyroscope.start();
       }
     </script>
   </body>
